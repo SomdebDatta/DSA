@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-class Animal(ABC):
 
+class Animal(ABC):
     @abstractmethod
     def name(self):
         pass
@@ -9,12 +9,12 @@ class Animal(ABC):
     @abstractmethod
     def greet(self):
         print("I will greet you now.")
-    
+
     def bye(self):
         print("See you soon!")
 
-class Dog(Animal):
 
+class Dog(Animal):
     def name(self):
         print("Hi I am a dog.")
 
@@ -22,7 +22,7 @@ class Dog(Animal):
     #     print("Woof!!")
 
 
-obj = Dog()
+obj = Animal()
 obj.name()
 obj.greet()
 obj.bye()
