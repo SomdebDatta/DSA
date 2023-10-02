@@ -42,7 +42,7 @@ def test_timer(sleep_secs):
 
 @timer
 def print_val(x: int):
-    print(f"This function prints the value passed squared.")
+    print("This function prints the value passed squared.")
     print(f"Value passed is {x}. Square of {x} is {x**2}")
 
 
