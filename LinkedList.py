@@ -66,24 +66,63 @@ class LinkedList:
 
         position = 0
         current_node = self.head
-        while current_node and position != index:
+        while current_node and position + 1 != index:
             current_node = current_node.next
             position += 1
-        if current_node:
-            rem_node = current_node.next
-            current_node.next = rem_node.next
-            rem_node.next = None
+        if current_node.next.data:
+            current_node.next = current_node.next.next
 
     def printLinkedList(self):
         current_node = self.head
+        print("Linked list -> ", end=" ")
         while current_node:
-            print(f"Value of current node - {current_node.data}")
+            print(f"{current_node.data}", end=" ")
             current_node = current_node.next
+        print()
+
+    def length(self):
+        n = 0
+        if not self.head:
+            return n
+        else:
+            current_node = self.head
+            while current_node:
+                current_node = current_node.next
+                n += 1
+            return n
 
 
+print("Creating and adding values to the Linked List")
 my_linked_list = LinkedList()
 my_linked_list.insertAtBegin(1)
 my_linked_list.insertAtEnd(2)
 my_linked_list.insertAtEnd(3)
-my_linked_list.insertAtEnd(4)
+my_linked_list.insertAtBegin(4)
 my_linked_list.printLinkedList()
+
+print("Now removing first node")
+my_linked_list.remove_first_node()
+my_linked_list.printLinkedList()
+
+
+print("Now removing last node")
+my_linked_list.remove_last_node()
+my_linked_list.printLinkedList()
+
+
+print("Adding value in the middle")
+my_linked_list.insertAtIndex(5, 1)
+my_linked_list.printLinkedList()
+
+
+print("Adding value in the middle")
+my_linked_list.insertAtIndex(99, 1)
+my_linked_list.printLinkedList()
+
+
+print("Removing value from the middle")
+my_linked_list.remove_node(1)
+my_linked_list.printLinkedList()
+
+print("Calculating length of the Linked List.")
+print(f"Length - {my_linked_list.length()}")
