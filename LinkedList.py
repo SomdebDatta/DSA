@@ -91,6 +91,16 @@ class LinkedList:
                 n += 1
             return n
 
+    def reverseLinkedList(self):
+        prev = None
+        curr = self.head
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        self.head = prev
+
 
 print("Creating and adding values to the Linked List")
 my_linked_list = LinkedList()
@@ -126,3 +136,9 @@ my_linked_list.printLinkedList()
 
 print("Calculating length of the Linked List.")
 print(f"Length - {my_linked_list.length()}")
+
+
+print("Reversing Linked List")
+my_linked_list.printLinkedList()
+my_linked_list.reverseLinkedList()
+my_linked_list.printLinkedList()
