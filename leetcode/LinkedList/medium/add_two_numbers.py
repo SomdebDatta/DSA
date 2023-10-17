@@ -14,6 +14,8 @@ class Solution:
     ) -> Optional[ListNode]:
         carry, add = 0, 0
         ans_list = list()
+        ans_ll = ListNode(0)
+        ans_ll_head = ans_ll
         while l1 and l2:
             add = l1.val + l2.val + carry
             carry = (l1.val + l2.val + carry) // 10
@@ -21,7 +23,8 @@ class Solution:
                 add -= 10
             l1 = l1.next
             l2 = l2.next
-            ans_list.append(add)
+            ans_ll.next = ListNode(add)
+            ans_ll = ans_ll.next
 
         if l1 is None and l2 is not None:
             while l2:
@@ -29,24 +32,20 @@ class Solution:
                 carry = (l2.val + carry) // 10
                 if carry:
                     add -= 10
-                ans_list.append(add)
                 l2 = l2.next
+                ans_ll.next = ListNode(add)
+                ans_ll = ans_ll.next
         elif l2 is None and l1 is not None:
             while l1:
                 add = l1.val + carry
                 carry = (l1.val + carry) // 10
                 if carry:
                     add -= 10
-                ans_list.append(add)
                 l1 = l1.next
+                ans_ll.next = ListNode(add)
+                ans_ll = ans_ll.next
         if carry:
-            ans_list.append(carry)
-        print(ans_list)
-
-        ans_ll = ListNode(ans_list[0])
-        ans_ll_head = ans_ll
-
-        for i in range(1, len(ans_list)):
-            ans_ll.next = ListNode(ans_list[i])
+            ans_ll.next = ListNode(carry)
             ans_ll = ans_ll.next
-        return ans_ll_head
+        ans_ll.next = None
+        return ans_ll_head.next
