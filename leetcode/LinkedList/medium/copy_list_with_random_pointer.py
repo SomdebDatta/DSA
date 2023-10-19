@@ -11,23 +11,17 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
-        if not head:
-            return head
+        old_to_new = dict()
+        start = head
+        start_ans = ans = Node(0)
+        while start:
+            old_to_new[start] = Node(start.val)
+            start = start.next
 
-        pos_list = list()
-
-        ans_ll = Node(0)
-        ans_ll_head = ans_ll
-        og_head = head
-        while head:
-            ans_ll.next = Node(head.val)
-            pos_list.append(head)
-            head = head.next
-            ans_ll = ans_ll.next
-        ans_ll_head = ans_ll_head.next
-        print(len(pos_list))
-        head_copy = ans_ll_head
-        for i in range(len(pos_list)):
-            ans_ll_head.random = pos_list[i].random.val
-            ans_ll_head = ans_ll_head.next
-        return head_copy
+        start = head
+        while start:
+            ans.next = old_to_new.get(start)
+            ans.next.random = old_to_new.get(start.random)
+            ans = ans.next
+            start = start.next
+        return start_ans.next
