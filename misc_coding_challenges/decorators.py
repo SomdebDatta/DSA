@@ -46,6 +46,14 @@ def print_val(x: int):
     print(f"Value passed is {x}. Square of {x} is {x**2}")
 
 
+@timer
+def dict_print(msg: dict):
+    print("This function is to print all the key val pairs in a dictionary. ")
+    for key, val in msg.items():
+        print(key, val)
+
+
 tp_print()
 print_val(10)
 test_timer(5)
+dict_print({"hello": "bye", "deepu": "sanj"})
