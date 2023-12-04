@@ -1,8 +1,4 @@
-my_object = [{hello: "hey"}]
-// console.log(my_object["hello"]);
-if ("hello" in my_object){
-    console.log("bye exists in my object");
-}
-else {
-    console.log("bye does not exist in my object");
-}
+let str1 = "hello";
+let str2 = "bye";
+console.log([2,0,-7,100].sort());
+console.log(str1.split("").sort());
