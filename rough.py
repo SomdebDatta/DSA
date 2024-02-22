@@ -1,4 +1,11 @@
-list1 = [1, 2, 3, 4, 5]
-list2 = [1, 2, 3, 4, 5, 6]
+count = 0
 
-print(all(x for x in list1 and 0))
+
+def recursionCount(count):
+    if count == 5:
+        return count
+    count += 1
+    return recursionCount(count)
+
+
+print(recursionCount(count))
