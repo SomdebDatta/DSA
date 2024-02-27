@@ -1,3 +1,8 @@
+"""
+Time Complexity: O(N^2)
+Space Complexity: O(1)
+"""
+
 arr = [13, 46, 24, 52, 20, 9]
 arr2 = [1, 2, 3, 4]
 
