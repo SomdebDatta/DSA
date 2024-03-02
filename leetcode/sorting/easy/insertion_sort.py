@@ -1,6 +1,6 @@
 """
-Time complexity: 
-Space complexity:
+Time complexity: O(N^2)
+Space complexity: O(1)
 """
 
 empty_arr = []
