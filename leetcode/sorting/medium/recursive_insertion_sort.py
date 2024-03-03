@@ -1,3 +1,12 @@
+"""
+Python always uses pass by reference. The behaviour differs because of the datatypes
+being mutable / immutable.
+(int, string, bool, tuple, etc) are immutable -> so they behave as if they were passed by value.
+(lists, dictionaries, etc) are mutable -> so they behave as if they were passed by reference.
+But BTS everything was passed by reference and in the case of immmutable objects,
+python just created a new object everytime you changed the value i.e. edited the string or manipualted the integer.
+"""
+
 empty_arr = []
 single_elem_arr = [0]
 arr = [13, 46, 24, 52, 20, 9]
@@ -5,34 +14,18 @@ sorted_arr_asc = [1, 2, 3, 4]
 sorted_arr_desc = [4, 3, 2, 1]
 
 
-def recInsertionSort(inp_arr):
-    i = 1
-    j = i - 1
-    current = inp_arr[i]
-
-    def recursion(i, j, current):
-        # import pdb
-
-        # pdb.set_trace()
-        if i == len(inp_arr):
-            return
-        if j < 0:
-            i += 1
-            j = i - 1
-            recursion(i, j, current)
-        if inp_arr[j] > current and j != len(inp_arr) - 1:
-            print(i, j)
-            inp_arr[j + 1] = inp_arr[j]
-            j -= 1
-            recursion(i, j, current)
-        inp_arr[j + 1] = current
-        i += 1
-        j = i - 1
-        current = inp_arr[i]
-        recursion(i, j, current)
-
-    recursion(i, j, current)
-    print(inp_arr)
+def recInsertionSort(inp_arr, i, n):
+    # print(i, id(i))
+    # print(inp_arr, id(inp_arr))
+    if i == n:
+        return
+    j = i
+    while j > 0 and inp_arr[j] < inp_arr[j - 1]:
+        inp_arr[j - 1], inp_arr[j] = inp_arr[j], inp_arr[j - 1]
+        j -= 1
+    recInsertionSort(inp_arr, i + 1, n)
 
 
-print(recInsertionSort(arr))
+print(arr)
+recInsertionSort(arr, 0, len(arr))
+print(arr)

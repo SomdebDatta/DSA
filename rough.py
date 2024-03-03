@@ -1,11 +1,9 @@
-count = 0
+def test_func(var):
+    var[0] = "helloe"
+    return
 
 
-def recursionCount(count):
-    if count == 5:
-        return count
-    count += 1
-    return recursionCount(count)
-
-
-print(recursionCount(count))
+var1 = ["bye"]
+print(var1)
+test_func(var1)
+print(var1)
