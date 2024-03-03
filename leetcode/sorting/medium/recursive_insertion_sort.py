@@ -29,3 +29,19 @@ def recInsertionSort(inp_arr, i, n):
 print(arr)
 recInsertionSort(arr, 0, len(arr))
 print(arr)
+
+print(empty_arr)
+recInsertionSort(empty_arr, 0, len(empty_arr))
+print(empty_arr)
+
+print(single_elem_arr)
+recInsertionSort(single_elem_arr, 0, len(single_elem_arr))
+print(single_elem_arr)
+
+print(sorted_arr_asc)
+recInsertionSort(arr, 0, len(sorted_arr_asc))
+print(sorted_arr_asc)
+
+print(sorted_arr_desc)
+recInsertionSort(sorted_arr_desc, 0, len(sorted_arr_desc))
+print(sorted_arr_desc)
