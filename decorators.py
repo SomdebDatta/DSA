@@ -28,5 +28,34 @@ def tester():
         pass
 
 
+class Employee:
+    def __init__(self, name, salary):
+        self._name = name
+        self._salary = salary
+        self.__gender = 'M'
+    
+    @property
+    def salary(self):
+        """Getter for salary"""
+        return self._salary
+    
+    @salary.setter
+    def salary(self, value):
+        if value < 0:
+            raise ValueError("Salary cannot be negative")
+        self._salary = value
+    
+    @property
+    def name(self):
+        """Getter for name"""
+        return self._name
+
+
 if __name__ == "__main__":
-    tester()
+    # tester()
+    emp = Employee('Somdeb', 50)
+    print(emp.name)
+    print(emp.salary)
+    emp.salary = 50000
+    print(emp.salary)
+    print(emp._Employee__gender) # This is how you access a private member of the class using name mangling
