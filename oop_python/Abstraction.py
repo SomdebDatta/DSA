@@ -19,9 +19,8 @@ class Dog(Animal):
         print("Hi I am a dog.")
 
     def greet(self):
-        # super().greet()
+        super().greet()
         print("Woof!!")
-
 
 obj = Dog()
 obj.name()
