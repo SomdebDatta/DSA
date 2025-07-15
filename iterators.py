@@ -16,6 +16,7 @@ def basic_operations():
 
 
 def create_iterator():
+    """Custom Iterator"""
     class TopTen:
 
         def __init__(self):
