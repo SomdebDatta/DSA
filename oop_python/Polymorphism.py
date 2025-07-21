@@ -13,6 +13,12 @@ def basic_polymorhpism():
                 return True
             return False
         
+        def __eq__(self, other_obj):
+            """Overriding the '==' operator. Works for the '!=' operator as well"""
+            if self.val == other_obj.val:
+                return True
+            return False
+        
         def __str__(self):
             return f'This is an object of class Number with value {self.val}'
     
@@ -22,6 +28,8 @@ def basic_polymorhpism():
     print(n1 > n2)
     print(n2 > n1)
     print(n1)
+    print(n1 == n2)
+    print(n1 != n2)
 
 if __name__ == '__main__':
     basic_polymorhpism()
